@@ -22,12 +22,12 @@ class Database:
         rows = self.cur.fetchall()
         return rows
     
-    def delete(self, id):
-        self.cur.execute("DELETE FROM BOOKS WHERE ID=?", (id,))
+    def delete(self, ID):
+        self.cur.execute("DELETE FROM BOOKS WHERE ID=?", (ID,))
         self.con.commit()
     
-    def update(self, id, title, author, year, isbn):
-        self.cur.execute("UPDATE BOOKS SET TITLE=?, AUTHOR=?, YEAR=?, ISBN=? WHERE ID=?", (title, author, year, isbn, id))
+    def update(self, ID, title, author, year, isbn):
+        self.cur.execute("UPDATE BOOKS SET TITLE=?, AUTHOR=?, YEAR=?, ISBN=? WHERE ID=?", (title, author, year, isbn, ID))
         self.con.commit()
 
     def __del__(self):
